@@ -1,14 +1,14 @@
 package ru.job4j;
 
 /**
- * Class Почти калькулятор.
+ * Class РџРѕС‡С‚Рё РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ.
  * @author Yury Vlasov
  * @since 07.04.2017
  * @version 1.0
 */
 public class Calculate {
     /**
-    * Метод, выводит сроку в консоль.
+    * РњРµС‚РѕРґ, РІС‹РІРѕРґРёС‚ СЃСЂРѕРєСѓ РІ РєРѕРЅСЃРѕР»СЊ.
     * @param args - args.
     */
     public static void main(String[] args) {
