@@ -1,5 +1,5 @@
 /**
-* Package for calculate task
+* Package for calculate task.
 *
 * @author Yury Vlasov (mailto:bel.88.07@gmail.com)
 * @since 07.04.2017
