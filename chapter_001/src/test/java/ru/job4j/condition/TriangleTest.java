@@ -1,4 +1,4 @@
-package ru.job4j.condition.triangle;
+package ru.job4j.condition;
 
 import org.junit.Test;
 import static org.junit.Assert.assertThat;
@@ -23,7 +23,6 @@ public class TriangleTest {
 	Point c = new Point(-2, -2);
 	Triangle triangle = new Triangle(a, b, c);
 	double result = triangle.area();
-	double expect = 9.0;
-	assertThat(result, closeTo(except, 0.03));
+	assertThat(result, closeTo(9.0, 0.03));
     }
 }

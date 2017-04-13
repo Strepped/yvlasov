@@ -1,4 +1,4 @@
-package ru.job4j.condition.triangle;
+package ru.job4j.condition;
 
 /**
  * Class Triangle.
@@ -41,9 +41,9 @@ public class Triangle {
 	*/
 	public double area() {
 		double result = -1D;
-		double lineA = Math.sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
-		double lineB = Math.sqrt((c.x - b.x) * (c.x - b.x) + (c.y - b.y) * (c.y - b.y));
-		double lineC = Math.sqrt((c.x - a.x) * (c.x - a.x) + (c.y - a.y) * (c.y - a.y));
+		double lineA = Math.sqrt((b.getX() - a.getX()) * (b.getX() - a.getX()) + (b.getY() - a.getY()) * (b.getY() - a.getY()));
+		double lineB = Math.sqrt((c.getX() - b.getX()) * (c.getX() - b.getX()) + (c.getY() - b.getY()) * (c.getY() - b.getY()));
+		double lineC = Math.sqrt((c.getX() - a.getX()) * (c.getX() - a.getX()) + (c.getY() - a.getY()) * (c.getY() - a.getY()));
 			if ((lineA < lineB + lineC) && (lineB < lineA + lineC) && (lineC < lineA + lineB)) {
 				double p = (lineA + lineB + lineC) / 2.0;
 				result = Math.sqrt(p * (p - lineA) * (p - lineB) * (p - lineC));
