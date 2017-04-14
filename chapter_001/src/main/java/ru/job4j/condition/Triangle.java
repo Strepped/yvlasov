@@ -36,14 +36,24 @@ public class Triangle {
 	}
 
 	/**
+	* Метод производит сложение.
+	* @param m - первая переменная.
+	* @param n - вторая переменная.
+	* @@return вторая переменная.
+	*/
+	public double dlina(Point m, Point n) {
+    	    return Math.sqrt((n.getX() - m.getX()) * (n.getX() - m.getX()) + (n.getY() - m.getY()) * (n.getY() - m.getY()));
+	}
+
+	/**
 	* Мотод расчитывает площадь.
 	* @return Возвращает параметр.
 	*/
 	public double area() {
 		double result = -1D;
-		double lineA = Math.sqrt((b.getX() - a.getX()) * (b.getX() - a.getX()) + (b.getY() - a.getY()) * (b.getY() - a.getY()));
-		double lineB = Math.sqrt((c.getX() - b.getX()) * (c.getX() - b.getX()) + (c.getY() - b.getY()) * (c.getY() - b.getY()));
-		double lineC = Math.sqrt((c.getX() - a.getX()) * (c.getX() - a.getX()) + (c.getY() - a.getY()) * (c.getY() - a.getY()));
+		double lineA = this.dlina(this.a, this.b);
+		double lineB = this.dlina(this.b, this.c);
+		double lineC = this.dlina(this.a, this.c);
 			if ((lineA < lineB + lineC) && (lineB < lineA + lineC) && (lineC < lineA + lineB)) {
 				double p = (lineA + lineB + lineC) / 2.0;
 				result = Math.sqrt(p * (p - lineA) * (p - lineB) * (p - lineC));
