@@ -19,8 +19,8 @@ public class MaxTest {
     @Test
     public void whenMaxTwoOrOneThenTwo() {
 	Max maximum = new Max();
-	int result = maximum.max(1, 2);
-        int expected = 2;
+	int result = maximum.max3(1, 2, 3);
+        int expected = 3;
         assertThat(result, is(expected));
     }
 }
