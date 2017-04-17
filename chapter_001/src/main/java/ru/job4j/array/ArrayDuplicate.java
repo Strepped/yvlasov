@@ -19,20 +19,11 @@ public class ArrayDuplicate {
 
 	public String[] remove(String[] array) {
 		int count = 0;
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 0; i < array.length - 1; i++) {
 			for (int j = i + 1; j < array.length; j++) {
-				if (array[i] != null && array[j] != null && array[i].equals(array[j])) {
-					array[j] = null;
+				if (array[i].equals(array[j])) {
+					array[j] = array[array.length - 1];
 					count++;
-				}
-			}
-		}
-
-		for (int i = array.length - 1; i >= 0; i--) {
-			for (int j = 0; j < i; j++) {
-				if (array[j] == null) {
-					array[j] = array[j + 1];
-					array[j + 1] = null;
 				}
 			}
 		}
