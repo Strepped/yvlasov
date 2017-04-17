@@ -23,6 +23,7 @@ public class ArrayDuplicate {
 			for (int j = i + 1; j < array.length; j++) {
 				if (array[i].equals(array[j])) {
 					array[j] = array[array.length - 1];
+					j--;
 					count++;
 				}
 			}
