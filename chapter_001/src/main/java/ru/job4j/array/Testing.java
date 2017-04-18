@@ -15,15 +15,23 @@ public class Testing {
 		char[] chSub = sub.toCharArray();
 
 		boolean result;
+		int m = 0; // считает число совпадений.
 
 		for (int i = 0; i < chOrigin.length; i++) {
 			for (int j = 0; j < chSub.length; j++) {
 				if (array[i].equals(array[j])) {
 					result = true;
-					j = j+1;
+					j = j+1; // нужно чтоб j начинала с j+1, а не с 0. Как это реализовать.
+					m++;
 					break;
+				} else {
+				m = 0;
 				}
 			}
 		}
+		if (m = chSub.length) {
+			contains = true;
+		}
+	return contains;
 	}
 }
