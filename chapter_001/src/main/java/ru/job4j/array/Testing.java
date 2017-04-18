@@ -21,7 +21,7 @@ public class Testing {
 			for (int j = 0; j < chSub.length; j++) {
 				if (array[i].equals(array[j])) {
 					result = true;
-					j = j+1; // нужно чтоб j начинала с j+1, а не с 0. Как это реализовать.
+					j = j+1; // нужно чтоб j начинала с j+1, а не с 0 после выхода из этого цикла.
 					m++;
 					break;
 				} else {
@@ -30,8 +30,10 @@ public class Testing {
 			}
 		}
 		if (m = chSub.length) {
-			contains = true;
+			result = true;
+		} else {
+			result = false;
 		}
-	return contains;
+	return result;
 	}
 }
