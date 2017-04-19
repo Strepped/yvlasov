@@ -20,20 +20,18 @@ public class Testing {
 		char[] chSub = sub.toCharArray();
 
 		boolean result;
-		int m = 0; // считает число совпадений.
+		int count = 0; // считает число совпадений.
 
 		for (int i = 0; i < chOrigin.length; i++) {
-			for (int j = 0 + m; j < chSub.length; j++) {
-				if (chOrigin[i] == (chSub[j])) {
-				m++;
-				break;
+			for (int j = 0; j < chSub.length; j++) {
+				if (chOrigin[i + j] == (chSub[j])) {
+					count++;
 				} else {
-					m = 0;
 					break;
 				}
 			}
 		}
-		if (m == chSub.length) {
+		if (count == chSub.length) {
 			result = true;
 		} else {
 			result = false;
