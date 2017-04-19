@@ -27,6 +27,7 @@ public class Testing {
 				if (chOrigin[i + j] == (chSub[j])) {
 					count++;
 				} else {
+					count = 0;
 					break;
 				}
 			}

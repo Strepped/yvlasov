@@ -1,4 +1,4 @@
-package ru.job4j.condition.point;
+package ru.job4j.condition;
 
 /**
  * Class Point.
