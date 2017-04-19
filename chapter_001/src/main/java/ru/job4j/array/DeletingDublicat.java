@@ -17,17 +17,19 @@ public class DeletingDublicat {
 	* @return Возвращает параметр.
 	*/
 
-	public String[] remove(String[] array) {
+	public int[] remove(int[] array) {
 		int count = 0;
 		for (int i = 0; i < array.length; i++) {
 			for (int j = i + 1; j < array.length; j++) {
-				if (array[i].equals(array[j]) && array[i] != "" && array[j] != "") {
-					String temp = array[j];
-					for (int m = 0; m < array.length; m++) {
-						if (array[m].equals(temp)) {
-							array[m] = "";
+				if (array[i] == array[j] && array[i] != 0 && array[j] != 0) {
+					int temp = array[j];
+					for (int m = j; m < array.length; m++) {
+						if (array[m] == temp) {
+							array[m] = 0;
 							count++;
-						}
+						} else {
+							 break;
+							}
 					}
 				}
 			}
@@ -35,9 +37,9 @@ public class DeletingDublicat {
 
 		for (int i = array.length - 1; i >= 0; i--) {
 			for (int j = 0; j < i; j++) {
-				if (array[j] == "") {
+				if (array[j] == 0) {
 					array[j] = array[j + 1];
-					array[j + 1] = "";
+					array[j + 1] = 0;
 				}
 			}
 		}
