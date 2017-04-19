@@ -1,7 +1,5 @@
 package ru.job4j.array;
 
-import java.util.Arrays;
-
 /**
  * Class Testing.
  * @author Yury Vlasov
@@ -10,7 +8,14 @@ import java.util.Arrays;
 */
 
 public class Testing {
-	publuc boolean contains(String origin, String sub) {
+	/**
+	* Метод производит сложение.
+	* @param origin - первая переменная.
+	* @param sub - первая переменная.
+	* @return Возвращает параметр.
+	*/
+
+	public boolean contains(String origin, String sub) {
 		char[] chOrigin = origin.toCharArray();
 		char[] chSub = sub.toCharArray();
 
@@ -18,18 +23,17 @@ public class Testing {
 		int m = 0; // считает число совпадений.
 
 		for (int i = 0; i < chOrigin.length; i++) {
-			for (int j = 0; j < chSub.length; j++) {
-				if (array[i].equals(array[j])) {
-					result = true;
-					j = j+1; // нужно чтоб j начинала с j+1, а не с 0 после выхода из этого цикла.
-					m++;
-					break;
+			for (int j = 0 + m; j < chSub.length; j++) {
+				if (chOrigin[i] == (chSub[j])) {
+				m++;
+				break;
 				} else {
-				m = 0;
+					m = 0;
+					break;
 				}
 			}
 		}
-		if (m = chSub.length) {
+		if (m == chSub.length) {
 			result = true;
 		} else {
 			result = false;
