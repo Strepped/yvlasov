@@ -10,6 +10,6 @@ public class Teacher extends Profession{
     }
 
     public String teach (Children children) {
-        return "Учитпль " + name + " учит " + children.name;
+        return "Учитпль " + getName() + " учит " + children.getName();
     }
 }

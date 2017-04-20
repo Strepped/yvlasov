@@ -10,6 +10,6 @@ public class Engineer extends Profession {
     }
 
     public String create (Project project) {
-        return "Инжинер " + name + " создает проект " + project.name;
+        return "Инжинер " + getName() + " создает проект " + project.getName();
     }
 }

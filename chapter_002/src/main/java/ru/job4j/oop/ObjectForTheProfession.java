@@ -5,7 +5,7 @@ package ru.job4j.oop;
  */
 public class ObjectForTheProfession {
 
-    String name;
+    private String name;
 
     ObjectForTheProfession(String name) {
         this.name = name;

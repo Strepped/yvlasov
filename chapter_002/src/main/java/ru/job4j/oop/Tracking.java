@@ -12,7 +12,7 @@ public class Tracking {
         Teacher teacher = new Teacher("Матвей", "учить", true);
         Children children= new Children("Александра");
         doctor.heals(patient); // тестировал разные варианты.
-        System.out.println("Доктор " + doctor.name + " лечит пациента " + patient.name + " //тест варианта"); // тестировал разные варианты.
+        System.out.println("Доктор " + doctor.getName() + " лечит пациента " + patient.getName() + " //тест варианта"); // тестировал разные варианты.
         System.out.println(doctor.heals(patient));
         System.out.println(engineer.create(project));
         System.out.println(teacher.teach(children));

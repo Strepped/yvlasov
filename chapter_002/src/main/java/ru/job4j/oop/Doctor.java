@@ -7,6 +7,6 @@ public class Doctor extends Profession{
     }
 
      public String heals (Patient patient) {
-         return "Доктор " + name + " лечит пациента " + patient.name;
+         return "Доктор " + getName() + " лечит пациента " + patient.getName();
     }
 }

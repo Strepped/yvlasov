@@ -1,9 +1,9 @@
 package ru.job4j.oop;
 
 public class Profession {
-    public String name;
-    public String skill;
-    public boolean license;
+    private String name;
+    private String skill;
+    private boolean license;
 
     public Profession(String name, String skill, boolean license) {
         this.name = name;
