@@ -23,7 +23,7 @@ public class TestingTest {
 	String values2 = "xim";
 	Testing testing = new Testing();
 	boolean result = testing.contains(values1, values2);
-	boolean expect = true;
+	boolean expect = false;
 	assertThat(result, is(expect));
 	}
 }
