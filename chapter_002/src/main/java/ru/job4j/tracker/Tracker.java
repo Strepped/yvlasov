@@ -18,11 +18,10 @@ public class Tracker {
 		return item;
 	}
 
-	public void update(String id, Item item) {
+	public void update(Item item) {
 		for (int index = 0; index < this.position; index++) {
-			if (this.items[index].getId().equals(id)) {
+			if (this.items[index].getId().equals(item.getId())) {
 				this.items[index] = item;
-				this.items[index].setId(id);
 				break;
 			}
 		}
@@ -31,40 +30,26 @@ public class Tracker {
 	public void delete(String id) {
 		for (int index = 0; index < this.position; index++) {
 			if (this.items[index].getId().equals(id)) {
-					this.items[index] = this.items[position - 1];
-					position--;
+				this.items[index] = this.items[position - 1];
+				position--;
 			}
 		}
 	}
 
 	public Item[] getAll() {
-		Item[] result = new Item[position];
-		for (int index = 0; index != this.position; index++) {
-			result[index] = this.items[index];
-		}
-		return result;
+		return Arrays.copyOf(this.items, position);
 	}
 
 	public Item[] findByName(String key) {
-	    Item[] temp = new Item[position];
-	    int count = 0;
+		Item[] temp = new Item[position];
+		int count = 0;
 		for (int index = 0; index != this.position; index++) {
 			if (this.items[index].getName().equals(key)) { //items[index] != null && нужное условие?
 				temp[count] = this.items[index];
 				count++;
 			}
 		}
-		for (int index = 0; index != this.position; index++) {
-			if (this.items[index].getDesc().equals(key)) { //items[index] != null && нужное условие?
-				temp[count] = this.items[index];
-				count++;
-			}
-		}
-		Item[] result = new Item[count];
-		for (int index = 0; index != count; index++) {
-			result[index] = temp[index];
-		}
-		return result;
+		return Arrays.copyOf(this.items, count);
 	}
 
 	protected Item findById(String id) {

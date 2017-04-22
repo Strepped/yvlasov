@@ -40,8 +40,8 @@ public class StartUI {
         }
 
         System.out.println("Список после update");
-        Item item5 = new Item("upd", "upd", 45);
-        tracker.update(item1.getId(), item5);
+        Item item5 = new Item(item1.getId(), "upd", "upd", 45);
+        tracker.update(item5);
         for (Item items : tracker.getAll()) {
             System.out.println(items);
         }

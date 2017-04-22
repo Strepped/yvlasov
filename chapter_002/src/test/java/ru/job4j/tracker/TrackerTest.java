@@ -6,27 +6,27 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 /**
-* Test.
-*
+ * Test.
+ *
  * @author Yury Vlasov
  * @since 20.04.2017
  * @version 1.0
-*/
+ */
 
 public class TrackerTest {
-/**
-* Test add.
-*/
+	/**
+	 * Test add.
+	 */
 	@Test
 	public void whenAddNewItem() {
-	Tracker tracker = new Tracker();
-	Item item = new Item("test1", "testDescription", 123L);
-	tracker.add(item);
-	assertThat(tracker.getAll()[0],is(item));
+		Tracker tracker = new Tracker();
+		Item item = new Item("test1", "testDescription", 123L);
+		tracker.add(item);
+		assertThat(tracker.getAll()[0],is(item));
 	}
-/**
-* Test Delete.
-*/
+	/**
+	 * Test Delete.
+	 */
 	@Test
 	public void whenDeleteItem() {
 		Tracker tracker = new Tracker();
@@ -47,9 +47,9 @@ public class TrackerTest {
 	public void whenUpdateItem() {
 		Tracker tracker = new Tracker();
 		Item item1 = new Item("test1", "testDescription", 123L);
-		Item item2 = new Item("test2", "testDescription2", 123L);
 		tracker.add(item1);
-		tracker.update(item1.getId(), item2);
+		Item item2 = new Item(item1.getId(), "test2", "testDescription2", 123L);
+		tracker.update(item2);
 		assertThat(tracker.findById(item2.getId()),is(item2));
 	}
 
