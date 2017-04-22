@@ -24,9 +24,9 @@ public class TrackerTest {
 	tracker.add(item);
 	assertThat(tracker.getAll()[0],is(item));
 	}
-	/**
-	 * Test add.
-	 */
+/**
+* Test add.
+*/
 	@Test
 	public void whenDeleteItemThenTrackerHasSameItem() {
 		Tracker tracker = new Tracker();
