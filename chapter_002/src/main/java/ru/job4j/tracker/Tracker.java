@@ -1,22 +1,38 @@
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+import java.util.Random;
+
 public class Tracker {
-	private Item[] items;
+	private Item[] items = new Item[10];
 	private int position = 0;
+	private static final Random RN = new Random();
+
+	String generateId() {
+		return String.valueOf(System.currentTimeMillis() + RN.nextInt());
+	}
 
 	public Item add(Item item) {
+		item.setId(this.generateId());
 		this.items[position++] = item;
 		return item;
 	}
 
-	public void update(Item item) {
+	public void update(String id, Item item) {
+		for (int index = 0; index < this.position; index++) {
+			if (this.items[index].getId().equals(id)) {
+				this.items[index] = item;
+				this.items[index].setId(id);
+				break;
+			}
+		}
 	}
 
 	public void delete(String id) {
-		for (Item item : items) {
-			if (item.getId().equals(id)) {
-				item = items[position]; //при такой записи java понимает какой индекс у item?
-				position--;
+		for (int index = 0; index < this.position; index++) {
+			if (this.items[index].getId().equals(id)) {
+					this.items[index] = this.items[position - 1];
+					position--;
 			}
 		}
 	}
@@ -30,12 +46,23 @@ public class Tracker {
 	}
 
 	public Item[] findByName(String key) {
+	    Item[] temp = new Item[position];
 	    int count = 0;
-	    Item[] result = new Item[count++];
-		for (Item item : items) {
-			if (item != null && item.getName().equals(key)) {
-				result[count] = item;
+		for (int index = 0; index != this.position; index++) {
+			if (this.items[index].getName().equals(key)) { //items[index] != null && нужное условие?
+				temp[count] = this.items[index];
+				count++;
 			}
+		}
+		for (int index = 0; index != this.position; index++) {
+			if (this.items[index].getDesc().equals(key)) { //items[index] != null && нужное условие?
+				temp[count] = this.items[index];
+				count++;
+			}
+		}
+		Item[] result = new Item[count];
+		for (int index = 0; index != count; index++) {
+			result[index] = temp[index];
 		}
 		return result;
 	}
