@@ -1,12 +1,13 @@
 package ru.job4j.tracker;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class Item {
     private String id;
     private String name;
     private String desc;
-    private long created;
+    private Date created;
     private String[] comments;
 
     public Item() {}
@@ -15,20 +16,20 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", key='" + name + '\'' +
                 ", desc='" + desc + '\'' +
                 ", created=" + created +
                 ", comments=" + Arrays.toString(comments) +
                 '}';
     }
 
-    public Item(String name, String desc, long created) {
+    public Item(String name, String desc, Date created) {
         this.name = name;
         this.desc = desc;
         this.created = created;
     }
 
-    public Item(String id, String name, String desc, long created) {
+    public Item(String id, String name, String desc, Date created) {
         this(name, desc, created);
         this.id = id;
     }
@@ -54,10 +55,10 @@ public class Item {
         return this.desc;
     }
 
-    public void setCreated(long created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
-    public long getCreated() {
+    public Date getCreated() {
         return this.created;
     }
 
