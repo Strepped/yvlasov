@@ -22,7 +22,8 @@ public class TrackerTest {
 	@Test
 	public void whenAddNewItem() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1", "testDescription", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item = new Item("test1", "testDescription", created);
 		tracker.add(item);
 		assertThat(tracker.getAll()[0], is(item));
 	}
@@ -32,8 +33,9 @@ public class TrackerTest {
 	@Test
 	public void whenDeleteItem() {
 		Tracker tracker = new Tracker();
-		Item item1 = new Item("test1", "testDescription1", Date.from(null));
-		Item item2 = new Item("test2", "testDescription2", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item1 = new Item("test1", "testDescription1", created);
+		Item item2 = new Item("test2", "testDescription2", created);
 		tracker.add(item1);
 		tracker.add(item2);
 		item1.setId(tracker.generateId());
@@ -48,9 +50,10 @@ public class TrackerTest {
 	@Test
 	public void whenUpdateItem() {
 		Tracker tracker = new Tracker();
-		Item item1 = new Item("test1", "testDescription", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item1 = new Item("test1", "testDescription", created);
 		tracker.add(item1);
-		Item item2 = new Item(item1.getId(), "test2", "testDescription2", Date.from(null));
+		Item item2 = new Item(item1.getId(), "test2", "testDescription2", created);
 		tracker.update(item2);
 		assertThat(tracker.findById(item2.getId()), is(item2));
 	}
@@ -61,7 +64,8 @@ public class TrackerTest {
 	@Test
 	public void whenFindItemId() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1", "testDescription", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item = new Item("test1", "testDescription", created);
 		item.setId(tracker.generateId());
 		tracker.add(item);
 		assertThat(tracker.findById(item.getId()), is(item));
@@ -73,7 +77,8 @@ public class TrackerTest {
 	@Test
 	public void whenFindNameItem() {
 		Tracker tracker = new Tracker();
-		Item item = new Item("test1", "testDescription1", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item = new Item("test1", "testDescription1", created);
 		tracker.add(item);
 		Item[] expected = tracker.findByName(item.getName());
 		assertThat(tracker.findByName(item.getName()), is(expected));
@@ -85,9 +90,10 @@ public class TrackerTest {
 	@Test
 	public void whenGetAllItem() {
 		Tracker tracker = new Tracker();
-		Item item1 = new Item("test1", "testDescription1", Date.from(null));
+		Date created = new Date(System.currentTimeMillis());
+		Item item1 = new Item("test1", "testDescription1", created);
 		tracker.add(item1);
 		Item[] expected = tracker.getAll();
-		assertThat(tracker.getAll(), is(expected));
+		assertThat(tracker.getAll()[0], is(item1));
 	}
 }
