@@ -42,9 +42,51 @@ package ru.job4j.tracker;
  for (Item items : tracker.getAll()) {
  System.out.println(items);
  */
+
+/**
+ * Class ConsoleInput.
+ * @author Yury Vlasov
+ * @since 24.04.2017
+ * @version 1.0
+ */
 public class StartUI {
+
+    /**
+     * Метод производит сложение.
+     * @param args - первая переменная.
+     */
     public static void main(String[] args) {
         MenuTracker menuTracker = new MenuTracker();
         menuTracker.select();
+    }
+
+    /**
+     * пунтк меню для добавления.
+     */
+    private Tracker tracker = new Tracker();
+
+    /**
+     * пунтк меню для добавления.
+     */
+    private Input input = new Input() {
+        @Override
+        public int ask(String[] question) {
+            return 0;
+        }
+
+        @Override
+        public String ask(String question) {
+            return null;
+        }
+    };
+
+    /**
+     * Метод производит сложение.
+     * @param inpur - первая переменная.
+     * @param tracker - первая переменная.
+     */
+    public StartUI(Input inpur, Tracker tracker) {
+        this.tracker = tracker;
+        this.input = input;
     }
 }
