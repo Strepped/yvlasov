@@ -34,14 +34,26 @@ public class MenuTracker {
      * пунтк меню для добавления.
      */
     private static final int EXIT = 7;
+
     /**
-     * пунтк меню для добавления.
+     * пполе.
      */
-    private ConsoleInput input = new ConsoleInput();
+    private final Tracker tracker;
+
     /**
-     * пунтк меню для добавления.
+     * поле.
      */
-    private Tracker tracker = new Tracker();
+    private final Input input;
+
+    /**
+     * Консруктор для MenuTracker.
+     * @param tracker - переменная.
+     * @param input - перемпнная.
+     */
+    public MenuTracker(Tracker tracker, Input input) {
+        this.tracker = tracker;
+        this.input = input;
+    }
 
     /**
      * Метод производит сложение.
