@@ -1,10 +1,17 @@
 package ru.job4j.oop;
 
 /**
- * Created by Strepped on 19.04.2017.
+ * Class ConsoleInput.
+ * @author Yury Vlasov
+ * @since 24.04.2017
+ * @version 1.0
  */
-public class Patient extends ObjectForTheProfession{
+public class Patient extends ObjectForTheProfession {
 
+    /**
+     * Метод производит сложение.
+     * @param name - первая переменная.
+     */
     public Patient(String name) {
         super(name);
     }

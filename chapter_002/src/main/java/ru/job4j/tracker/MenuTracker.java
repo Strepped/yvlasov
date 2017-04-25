@@ -78,10 +78,11 @@ public class MenuTracker {
             }
 
             if (key == UPDATE) {
+                String id = input.ask("Введите id");
                 String name = input.ask("Введите имя");
                 String desc = input.ask("Введите desc");
                 Date created = new Date(System.currentTimeMillis());
-                Item item = new Item(name, desc, created);
+                Item item = new Item(id, name, desc, created);
                 tracker.update(item);
                 String space = input.ask("введите 0 для продолжения");
             }
