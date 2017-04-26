@@ -13,6 +13,9 @@ import static org.junit.Assert.assertThat;
  */
 public class StartUITest {
 
+    /**
+     * Test AddItem.
+     */
     @Test
     public void whenUserAddItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -21,6 +24,9 @@ public class StartUITest {
         assertThat(tracker.getAll()[0].getName(), is("test name")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
+    /**
+     * Test GetAllItem.
+     */
     @Test
     public void whenUserGetAllItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -35,6 +41,9 @@ public class StartUITest {
         assertThat(tracker.getAll(), is(expected)); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
+    /**
+     * Test UpdateItem.
+     */
     @Test
     public void whenUserUpdateItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -47,6 +56,9 @@ public class StartUITest {
         assertThat(tracker.getAll()[0].getName(), is("reneme")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
+    /**
+     * Test Delete.
+     */
     @Test
     public void whenUserDeleteItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -61,6 +73,9 @@ public class StartUITest {
         assertThat(tracker.getAll()[0], is(item2)); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
+    /**
+     * Test FindIdItem.
+     */
     @Test
     public void whenUserFindIdItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
@@ -73,6 +88,9 @@ public class StartUITest {
         assertThat(tracker.getAll()[0].getName(), is("test1")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
     }
 
+    /**
+     * Test FindNameItem.
+     */
     @Test
     public void whenUserFindNameItemThenTrackerHasNewItemWithSameName() {
         Tracker tracker = new Tracker();     // создаём Tracker
