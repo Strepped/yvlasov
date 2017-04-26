@@ -24,7 +24,7 @@ public class ConsoleInput implements Input {
         for (String v : question) {
             System.out.println(v);
         }
-        return scanner.nextInt();
+        return Integer.parseInt(scanner.next());
     }
 
     /**
