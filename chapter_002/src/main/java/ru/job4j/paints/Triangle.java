@@ -5,7 +5,6 @@ package ru.job4j.paints;
  */
 
 public class Triangle implements Shape {
-
     /**
      * Метод производит сложение.
      * @return Возвращает параметр.
@@ -15,14 +14,14 @@ public class Triangle implements Shape {
         StringBuilder s = new StringBuilder();
         for (int i = 1; i <= 3; i++) {
             int w = i - 1 + i;
-            if (i < 3) {
+            for (int y = i; y < 3; y++) {
                 s.append(" ");
             }
-            for (int y = 1; y <= w; y++) {
+            for (int x = 1; x <= w; x++) {
                 s.append("^");
             }
             if (i < 3) {
-                s.append(" " + System.getProperty("line.separator"));
+                s.append(System.getProperty("line.separator"));
             }
         }
         return s.toString();
