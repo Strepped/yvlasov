@@ -50,7 +50,6 @@ public class StartUITest {
         Date created = new Date(System.currentTimeMillis());
         Item item1 = new Item("test1", "testDescription1", created);
         tracker.add(item1);
-        item1.setId(tracker.generateId());
         Input input = new StubInput(new String[]{"3", item1.getId(), "reneme", "redesc", "0", "7"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.getAll()[0].getName(), is("reneme")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
@@ -67,7 +66,6 @@ public class StartUITest {
         Item item2 = new Item("test2", "testDescription2", created);
         tracker.add(item1);
         tracker.add(item2);
-        item1.setId(tracker.generateId());
         Input input = new StubInput(new String[]{"4", item1.getId(), "0", "7"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.getAll()[0], is(item2)); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.
@@ -82,7 +80,6 @@ public class StartUITest {
         Date created = new Date(System.currentTimeMillis());
         Item item1 = new Item("test1", "testDescription1", created);
         tracker.add(item1);
-        item1.setId(tracker.generateId());
         Input input = new StubInput(new String[]{"5", item1.getId(), "0", "7"});   //создаём StubInput с последовательностью действий
         new StartUI(input, tracker).init();     //   создаём StartUI и вызываем метод init()
         assertThat(tracker.getAll()[0].getName(), is("test1")); // проверяем, что нулевой элемент массива в трекере содержит имя, введённое при эмуляции.

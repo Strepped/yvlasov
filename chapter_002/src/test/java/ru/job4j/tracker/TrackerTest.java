@@ -38,8 +38,6 @@ public class TrackerTest {
 		Item item2 = new Item("test2", "testDescription2", created);
 		tracker.add(item1);
 		tracker.add(item2);
-		item1.setId(tracker.generateId());
-		item2.setId(tracker.generateId());
 		tracker.delete(item2.getId());
 		assertThat(tracker.getAll()[0], is(item1));
 	}
@@ -66,7 +64,6 @@ public class TrackerTest {
 		Tracker tracker = new Tracker();
 		Date created = new Date(System.currentTimeMillis());
 		Item item = new Item("test1", "testDescription", created);
-		item.setId(tracker.generateId());
 		tracker.add(item);
 		assertThat(tracker.findById(item.getId()), is(item));
 	}
