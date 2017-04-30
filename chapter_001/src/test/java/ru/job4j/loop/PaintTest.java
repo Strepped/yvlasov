@@ -21,7 +21,7 @@ public class PaintTest {
     public void whenPiramidWithHeightTwoThenStringWithTwoRows() {
         Paint paint = new Paint();
         String result = paint.piramid(2);
-        String expected = String.format(" ^ %n^^^", System.getProperty("line.separator"));
+        String expected = String.format(" ^%n^^^", System.getProperty("line.separator"));
         assertThat(result, is(expected));
     }
 /**

@@ -24,7 +24,7 @@ public class Paint {
 			for (int x = 1; x <= w; x++) {
 				s.append("^");
 			}
-			if (i < 3) {
+			if (i < h) {
 			s.append(System.getProperty("line.separator"));
 			}
 		}
