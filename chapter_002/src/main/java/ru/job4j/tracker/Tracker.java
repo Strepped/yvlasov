@@ -44,12 +44,13 @@ public class Tracker {
 
 	/**
 	 * Метод производит сложение.
-	 * @param item - первая переменная.
+	 * @param fresh - первая переменная.
 	 */
-	public void update(Item item) {
+	public void update(Item fresh) {
 		for (int index = 0; index < this.position; index++) {
-			if (this.items[index].getId().equals(item.getId())) {
-				this.items[index] = item;
+			Item item = items[index];
+			if (item != null && this.items[index].getId().equals(fresh.getId())) {
+				items[index] = fresh;
 				break;
 			}
 		}
