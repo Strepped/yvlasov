@@ -32,7 +32,7 @@ public class StartUI {
      * Метод.
      */
     public void init() {
-        MenuTracker menu = new MenuTracker(this.input, tracker);// Можно использовать this.tracker?
+        MenuTracker menu = new MenuTracker(this.input, tracker);
         menu.fillActions();
         do {
             menu.show();

@@ -17,7 +17,7 @@ public class PaintTest {
         Shape shape = new Triangle();
         new Paint().draw(shape);
         String result = shape.pic();
-        String expected = String.format(" ^ %s ^^^ %n^^^^^", System.getProperty("line.separator"));
+        String expected = String.format("  ^%s ^^^%n^^^^^", System.getProperty("line.separator"));
         assertThat(result, is(expected));
     }
 
