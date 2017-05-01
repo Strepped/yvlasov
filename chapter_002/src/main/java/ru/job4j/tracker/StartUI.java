@@ -29,10 +29,16 @@ public class StartUI {
     }
 
     /**
-     * Конструктор.
+     * Метод.
      */
     public void init() {
-        new MenuTracker(this.tracker, this.input).select();
+        MenuTracker menu = new MenuTracker(this.input, tracker);// Можно использовать this.tracker?
+        menu.fillActions();
+        do {
+            menu.show();
+            int key = Integer.valueOf(input.ask("Выберете пункт меню: "));
+            menu.select(key);
+        } while (!"y".equals(this.input.ask("Exit? y")));
     }
 
     /**
