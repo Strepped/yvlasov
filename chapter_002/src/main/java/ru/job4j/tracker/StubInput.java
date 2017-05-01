@@ -27,8 +27,8 @@ public class StubInput implements Input {
      * @return Возвращает параметр.
      */
     @Override
-    public int ask(String[] question) {
-        return Integer.valueOf(this.ask(question[0]));
+    public String ask(String[] question) {
+        return this.ask(question);
     }
 
     /**

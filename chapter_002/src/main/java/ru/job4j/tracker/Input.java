@@ -13,7 +13,7 @@ public interface Input {
      * @param question - первая переменная.
      * @return Возвращает параметр.
      */
-    int ask(String[] question);
+    String ask(String[] question);
 
     /**
      * Переменная результат.

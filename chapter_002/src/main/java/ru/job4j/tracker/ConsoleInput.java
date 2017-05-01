@@ -20,11 +20,11 @@ public class ConsoleInput implements Input {
      * @param question - первая переменная.
      * @return Возвращает параметр.
      */
-    public int ask(String[] question) {
+    public String ask(String[] question) {
         for (String v : question) {
             System.out.println(v);
         }
-        return Integer.parseInt(scanner.next());
+        return scanner.nextLine();
     }
 
     /**
@@ -34,6 +34,6 @@ public class ConsoleInput implements Input {
      */
     public String ask(String question) {
         System.out.println(question);
-        return scanner.next();
+        return scanner.nextLine();
     }
 }
