@@ -4,146 +4,6 @@ import java.util.Date;
 
 /**
  * Class ConsoleInput.
- * @author Yury Vlasov
- * @since 24.04.2017
- * @version 1.0
- */
-
-class UpdateItem implements UserAction {
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public int key() {
-        return 2;
-    }
-
-    /**
-     * Метод производит сложение.
-     * @param input - первая переменная.
-     * @param tracker - первая переменная.
-     */
-    public void execute(Input input, Tracker tracker) {
-        String id = input.ask("Введите id");
-        String name = input.ask("Введите имя");
-        String desc = input.ask("Введите desc");
-        Date created = new Date(System.currentTimeMillis());
-        Item item = new Item(name, desc, created);
-        item.setId(id);
-        tracker.update(item);
-    }
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Редактировать элемент: ");
-    }
-}
-
-/**
- * Class ConsoleInput.
- */
-class Delete implements UserAction {
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public int key() {
-        return 3;
-    }
-
-    /**
-     * Метод производит сложение.
-     * @param input - первая переменная.
-     * @param tracker - первая переменная.
-     */
-    public void execute(Input input, Tracker tracker) {
-        String id = input.ask("Введите id");
-        tracker.delete(id);
-    }
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Удалить элемент: ");
-    }
-}
-
-/**
- * Class ConsoleInput.
- */
-class FindById implements UserAction {
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public int key() {
-        return 4;
-    }
-
-    /**
-     * Метод производит сложение.
-     * @param input - первая переменная.
-     * @param tracker - первая переменная.
-     */
-    public void execute(Input input, Tracker tracker) {
-        String id = input.ask("Введите id");
-        Item item = tracker.findById(id);
-        System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
-    }
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Поиск элемента по id: ");
-    }
-}
-
-/**
- * Class ConsoleInput.
- */
-class FindByName implements UserAction {
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public int key() {
-        return 5;
-    }
-
-    /**
-     * Метод производит сложение.
-     * @param input - первая переменная.
-     * @param tracker - первая переменная.
-     */
-    public void execute(Input input, Tracker tracker) {
-        String name = input.ask("Введите имя");
-        for (Item item : tracker.findByName(name)) {
-            System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
-        }
-    }
-
-    /**
-     * Метод производит сложение.
-     * @return - первая переменная.
-     */
-    public String info() {
-        return String.format("%s. %s", this.key(), "Поиск эелемента по имени: ");
-    }
-}
-
-
-/**
- * Class ConsoleInput.
  */
 public class MenuTracker {
 
@@ -178,11 +38,11 @@ public class MenuTracker {
      */
     public void fillActions() {
         this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.FindAllItem();
-        this.actions[2] = new UpdateItem();
-        this.actions[3] = new Delete();
-        this.actions[4] = new FindById();
-        this.actions[5] = new FindByName();
+        this.actions[1] = this.new FindAllItem();
+        this.actions[2] = this.new UpdateItem();
+        this.actions[3] = this.new Delete();
+        this.actions[4] = this.new FindById();
+        this.actions[5] = this.new FindByName();
     }
 
     /**
@@ -242,7 +102,7 @@ public class MenuTracker {
     /**
      * Class ConsoleInput.
      */
-    private static class FindAllItem implements UserAction {
+    private class FindAllItem implements UserAction {
 
         /**
          * Метод производит сложение.
@@ -269,6 +129,144 @@ public class MenuTracker {
          */
         public String info() {
             return String.format("%s. %s", this.key(), "Показать все элементы: ");
+        }
+    }
+
+    /**
+     * Class ConsoleInput.
+     * @author Yury Vlasov
+     * @since 24.04.2017
+     * @version 1.0
+     */
+    class UpdateItem implements UserAction {
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public int key() {
+            return 2;
+        }
+
+        /**
+         * Метод производит сложение.
+         * @param input - первая переменная.
+         * @param tracker - первая переменная.
+         */
+        public void execute(Input input, Tracker tracker) {
+            String id = input.ask("Введите id");
+            String name = input.ask("Введите имя");
+            String desc = input.ask("Введите desc");
+            Date created = new Date(System.currentTimeMillis());
+            Item item = new Item(name, desc, created);
+            item.setId(id);
+            tracker.update(item);
+        }
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public String info() {
+            return String.format("%s. %s", this.key(), "Редактировать элемент: ");
+        }
+    }
+
+    /**
+     * Class ConsoleInput.
+     */
+    class Delete implements UserAction {
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public int key() {
+            return 3;
+        }
+
+        /**
+         * Метод производит сложение.
+         * @param input - первая переменная.
+         * @param tracker - первая переменная.
+         */
+        public void execute(Input input, Tracker tracker) {
+            String id = input.ask("Введите id");
+            tracker.delete(id);
+        }
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public String info() {
+            return String.format("%s. %s", this.key(), "Удалить элемент: ");
+        }
+    }
+
+    /**
+     * Class ConsoleInput.
+     */
+    class FindById implements UserAction {
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public int key() {
+            return 4;
+        }
+
+        /**
+         * Метод производит сложение.
+         * @param input - первая переменная.
+         * @param tracker - первая переменная.
+         */
+        public void execute(Input input, Tracker tracker) {
+            String id = input.ask("Введите id");
+            Item item = tracker.findById(id);
+            System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
+        }
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public String info() {
+            return String.format("%s. %s", this.key(), "Поиск элемента по id: ");
+        }
+    }
+
+    /**
+     * Class ConsoleInput.
+     */
+    class FindByName implements UserAction {
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public int key() {
+            return 5;
+        }
+
+        /**
+         * Метод производит сложение.
+         * @param input - первая переменная.
+         * @param tracker - первая переменная.
+         */
+        public void execute(Input input, Tracker tracker) {
+            String name = input.ask("Введите имя");
+            for (Item item : tracker.findByName(name)) {
+                System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
+            }
+        }
+
+        /**
+         * Метод производит сложение.
+         * @return - первая переменная.
+         */
+        public String info() {
+            return String.format("%s. %s", this.key(), "Поиск эелемента по имени: ");
         }
     }
 }
