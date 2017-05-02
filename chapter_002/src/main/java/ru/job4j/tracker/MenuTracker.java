@@ -45,6 +45,14 @@ public class MenuTracker {
         this.actions[5] = this.new FindByName();
     }
 
+/**
+     * Метод производит сложение.
+     * @return Возвращает параметр.
+ */
+    public int[] getActions() {
+        return new int[]{0, 1, 2, 3, 4, 5};
+    }
+
     /**
      * Консруктор для MenuTracker.
      *

@@ -21,4 +21,12 @@ public interface Input {
      * @return Возвращает параметр.
      */
     String ask(String question);
+
+    /**
+     * Переменная результат.
+     * @param question - первая переменная.
+     * @param range - первая переменная.
+     * @return Возвращает параметр.
+     */
+    int ask(String question, int[] range);
 }
