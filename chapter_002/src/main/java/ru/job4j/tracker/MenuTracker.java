@@ -37,12 +37,12 @@ public class MenuTracker {
      * Метод.
      */
     public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = this.new FindAllItem();
-        this.actions[2] = this.new UpdateItem();
-        this.actions[3] = this.new Delete();
-        this.actions[4] = this.new FindById();
-        this.actions[5] = this.new FindByName();
+        this.actions[0] = this.new AddItem("");
+        this.actions[1] = this.new FindAllItem("");
+        this.actions[2] = this.new UpdateItem("");
+        this.actions[3] = this.new Delete("");
+        this.actions[4] = this.new FindById("");
+        this.actions[5] = this.new FindByName("");
     }
 
 /**
@@ -76,7 +76,16 @@ public class MenuTracker {
     /**
      * Class ConsoleInput.
      */
-    private class AddItem implements UserAction {
+    private class AddItem extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public AddItem(String name) {
+            super("Добавить найвый элемент:");
+        }
 
         /**
          * Метод производит сложение.
@@ -97,20 +106,21 @@ public class MenuTracker {
             Date created = new Date(System.currentTimeMillis());
             tracker.add(new Item(name, desc, created));
         }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Добавьте новый элемент: ");
-        }
     }
 
     /**
      * Class ConsoleInput.
      */
-    private class FindAllItem implements UserAction {
+    private class FindAllItem extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public FindAllItem(String name) {
+            super("Покахать все элементы:");
+        }
 
         /**
          * Метод производит сложение.
@@ -130,14 +140,6 @@ public class MenuTracker {
                 System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
             }
         }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Показать все элементы: ");
-        }
     }
 
     /**
@@ -146,7 +148,17 @@ public class MenuTracker {
      * @since 24.04.2017
      * @version 1.0
      */
-    class UpdateItem implements UserAction {
+    class UpdateItem extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public UpdateItem(String name) {
+            super("Редактировать элемент по id:");
+        }
+
         /**
          * Метод производит сложение.
          * @return - первая переменная.
@@ -169,20 +181,21 @@ public class MenuTracker {
             item.setId(id);
             tracker.update(item);
         }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Редактировать элемент: ");
-        }
     }
 
     /**
      * Class ConsoleInput.
      */
-    class Delete implements UserAction {
+    class Delete extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public Delete(String name) {
+            super("Удалить элемент по id:");
+        }
 
         /**
          * Метод производит сложение.
@@ -201,20 +214,21 @@ public class MenuTracker {
             String id = input.ask("Введите id");
             tracker.delete(id);
         }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Удалить элемент: ");
-        }
     }
 
     /**
      * Class ConsoleInput.
      */
-    class FindById implements UserAction {
+    class FindById extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public FindById(String name) {
+            super("Поиск элемента по id:");
+        }
 
         /**
          * Метод производит сложение.
@@ -234,20 +248,21 @@ public class MenuTracker {
             Item item = tracker.findById(id);
             System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
         }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Поиск элемента по id: ");
-        }
     }
 
     /**
      * Class ConsoleInput.
      */
-    class FindByName implements UserAction {
+    class FindByName extends BaseAction {
+
+        /**
+         * Метод производит сложение.
+         * @param name - первая переменная.
+         * @return - первая переменная.
+         */
+        public FindByName(String name) {
+            super("Поиск элементов по имени:");
+        }
 
         /**
          * Метод производит сложение.
@@ -267,14 +282,6 @@ public class MenuTracker {
             for (Item item : tracker.findByName(name)) {
                 System.out.println(String.format("%s; %s; %s", "id: " + item.getId(), "  Имя: " + item.getName(), "  Автор: " + item.getDesc()));
             }
-        }
-
-        /**
-         * Метод производит сложение.
-         * @return - первая переменная.
-         */
-        public String info() {
-            return String.format("%s. %s", this.key(), "Поиск эелемента по имени: ");
         }
     }
 }
