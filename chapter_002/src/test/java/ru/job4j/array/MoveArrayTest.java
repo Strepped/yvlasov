@@ -9,6 +9,7 @@ import static org.junit.Assert.assertThat;
  * Created by Strepped on 16.05.2017.
  */
 public class MoveArrayTest {
+
     /**
      * Test.
      * @author Yury Vlasov
